@@ -1,123 +1,129 @@
----
-layout: default
----
+## 基本信息
+ - **姓名**: 盛中昊
+ - **籍贯**: 浙江金华
+ - **E-mail**: zhonghao.sheng@pku.edu.cn
+ - **电话**: (+86)183-1700-1520
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+## 教育经历
+ - **[北京大学](http://pku.edu.cn)**(PKU) 2017年9月至今  
+软件与微电子学院, 软件工程国家工程研究中心  
+软件工程硕士 , 深度学习和自然然语言处理方向
+ - **[上海交通大学](http://sjtu.edu.cn/)**(SJTU) 2013年9月 - 2017年6月  
+ 电子信息与电气工程学院  
+ 软件工程学士
 
-[Link to another page](./another-page.html).
+## 论文发表
+ - "Exploiting Entity BIO Tag Embeddings and Multi-task Learning for Relation Extraction with Imbalanced Data", **Association for Computational Linguistics(ACL)**,2019.[[pdf]](https://www.aclweb.org/anthology/P19-1130) [[link]](https://www.aclweb.org/anthology/P19-1130/)
+ 1. 针对文本片段内存在多个实体的场景，提出实体**BIO**标签作为输入特征以增强句内实体的表示
+ 2. 负样本无明显规律难以学习，引入**Ranking Loss**专注对正样本的学习
+ 3. 枚举实体对导致大量负样本，提出**多任务学习**平衡正负样本的学习
 
-There should be whitespace between paragraphs.
+## 比赛获奖
+ - **阿里云天池-瑞金医院MMC人工智能辅助构建知识图谱大赛亚军(2/1629)**     (2019年2月)
+ 1. **赛题**：给出大量医疗领域语料，抽取语料中的实体及实体间的关系，以支持知识图谱的构建
+ 2. **获奖方案**：1）引入**BIO标签**作为输入特征以增强句内实体的表示；2）预训练实体向量模型，获取**动态实体向量**；3）建立了实体识别和关系抽取的**联合模型**；4）引入**RankingLoss**专注对正样本的学习；5）通过充足的数据分析构造合适的样本集 
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+## 主要研究经历
+### 关系抽取 (2018年10月至今)
+1. **针对文档级关系抽取中样本不平衡问题的优化** (ACL2019)
+ - 该场景下文本片段内存在多个实体，提出实体**BIO标签**作为输入特征以增强实体的表示
+ - 该场景下需要枚举文本片段内出现的实体对，其中有大量无关系的实体对(负样本)，且其规律 杂乱无章难以学习，针对该问题引入**RankingLoss**和**熵损失**专注对正样本的学习
+ - 在专注正样本学习的同时引入**多任务学习**平衡正负样本的学习，或通过**知识蒸馏**的方式对正样本的规律进行迁移
+2. **针对文档级别的关系抽取** (IJCAI2020在投)
+ - 针对该场景下文档长度大的特点设计**层次结构**模型，以实体对的表征设计上下两层的**对偶注意力**机制，并利用其对偶性加以正则项约束。
+ - 实体关系可能需要推理得出，以**图神经网络、记忆网络、Graph-LSTM**等结构增强模型的推理能力。
+ - 为了使模型注意到特定句子的信息，充分利用标注数据，设计**有监督的注意力机制**。
 
-# Header 1
+### 命名实体识别 (2019年2月至今)
+1. **基于深度强化学习的命名实体识别**
+ - 引入**强化学习**优化命名实体识别模型，特别针对预测实体边界不匹配的问题。
+ - 删词方案：句子中大量非实体词(”O”标签)可能会影响实体的识别，使用强化学习删除非关键词。将判别模型编码词的表征作为当前状态，策略网络决定是否删除该词。判别模型根据删词结果进行预测。
+ - 分词方案：判别模型设计双层LSTM分别编码词的字符表征和上下文表征，将词的表征作为 当前状态，策略网络决定是否分词，判别模型基于分词结果进行预测。
+ - 设计多种奖励机制。词级别奖励如删/分词是否正确的损失(有监督)，当前时刻模型效果的变化(弱监督)等；句子级别主要为弱监督延迟奖励，如句子的预测效果删/分词的比例等。
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
-## Header 2
-
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
-
-### Header 3
-
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
+2. **基于片段级信息的命名实体识别**
+ - 尝试使用片段级信息完成命名实体识别任务。在BiLSTM之后引入多尺度CNN提取片段级信息，并设计不同卷积核增强对实体边界信息的抽取。
+ - 将命名实体识别任务拆分为实体边界预测和类型预测两个任务，并引入**多任务学习**的模式，边界预测任务使用半马尔科夫条件随机场，类型预测任务使用交叉熵。
+ - 尝试通过嵌套命名实体识别任务的相关技术增强模型。 
 
 
-### Definition lists can be used with HTML syntax.
+### Seq2seq架构 (2019年8月-2019年9月)
+ 1.**基于变分自编码器的Seq2seq架构改进** (AAAI2020在投)
+ - 基于**变分自编码器**(VAE)改进Seq2seq架构，设计向量空间**翻译模块**并以多种损失监督其学习。
+ - VAE能提升生成结果的多样性，且使得该架构支持使用大量无标注语料进行**半监督学习**。
+ - **注意力机制**和**拷贝机制**仍适用于该架构，并能提升模型效果。
 
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+### 文本分类 (2019年6月-2019年9月)
+ 1.**基于层次循环神经网络的文本分类研究** (AAAI2020在投)
+ - 模型每层以**CNN-like RNN**建模序列的局部信息并提高并行性，长距离依赖由深层RNN建模。
+ - 以**层间注意力机制**整合各层的信息，以**辅助任务**直接监督每层的训练。
 
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
+### 代码摘要 (2019年8月-2019年9月)
+ 1.**基于多任务学习的代码摘要改进** (ICSE2020在投)
+ - 针对方法名在代码摘要任务中的重要性，以**多任务学习**引入相关任务，提升代码摘要模型效果。 
 
-```
-The final element.
-```
+
+
+## 实习经历
+**软件工程国家工程研究中心 , NLP小组** **(Python,TensorFlow,Keras,Pytorch)** 2018年7月至今
+1. **智能问诊**：使用序列标注模型抽取病历、医学书籍、文献中的相关信息，为构建知识图谱实现智 能问诊提供支持。
+2. **智能规划**：使用无监督方法抽取规划文件中提到的相关指标及数值，为规划文件的匹配提供支持。
+3. **新闻要素抽取**：使用序列标注模型抽取新闻中的关键信息，辅助新闻内容的结构化工作，为信息 的整理和检索提供支持。
+
+
+**北京朗镜科技有限责任公司 , 人工智能实验室**  **(Python,C++,Caffe,OpenCV)** 2016年10月 - 2017年5月
+ - 基于深度学习框架搭建了一个图像识别系统，检测并分类用户上传图片中的目标物体。系统达到了 **85%** 的准确率，减少了 **90%** 人工检查图片的成本
+ 1. 尝试GoogLeNet、VGG等**图像分类**模型和Faster-RCNN、SSD等**物体检测**模型并调优。
+ 2. 使用亮度调整、模糊、裁切等**数据增强**操作增加模型的泛化性。 
+ 3. 使用**多模型融合**提升性能。使用**多层分类器**优化标签数量大的问题
+ 4. 实现数据处理和训练的自动化脚本，参与模型部署  
+ 5. 项目初期也使用传统计算机视觉算法进行了尝试。
+
+**摩根士丹利(Morgan Stanley) , 技术和信息风险部(TIR), 上海** **(Java,Scala,Spark)** 2016年7月 - 2016年9月
+ - 基于Spark计算引擎，搭建了一个权限管理系统，使用**数据挖掘算法**对用户权限信息进行分析，辅助监管人员更好地管理。系统上线运行后，用户可以方便地配置数据处理的流程，得到分析结果。 
+
+## 本科部分项目经历
+
+**召灵 (C#,Unity3D)** 2016年5月 - 2016年7月 [[link]](https://github.com/silencious/SoulSummoner)  [[demo]](https://www.youtube.com/watch?v=CzDHDcZ0RRg)
+ - 实现3D游戏《召灵》中的所有场景。
+ - 增加C#脚本去控制场景相关的逻辑。
+ - 参与游戏设计。
+ 
+**Android语音助手 (Java)** 2015年7月 - 2015年9月
+ - 实现操作模块，根据请求执行指定的操作(如打开App、关机等)
+ - 参与软件设计和测试。
+ 
+**网上书店 (Java,JavaScript)** 2015年2月 - 2015年6月
+ - 实现了一个有基础功能的网上书店，项目使用Maven管理部署于Tomcat。
+ - 使用SSH框架(Spring,Struts,Hibernate)实现书店。
+ - 将后端改为WebService，前端增加Ajax异步更新。
+ - 后端除MySQL数据库外，使用Redis作为缓存。
+ - 通过WebSocket协议，实现聊天室功能。
+ - 尝试一些如EJB、JMS等的J2E技术。
+ 
+**2048桌面版 (C++)** 2014年7月 - 2014年8月
+ - 使用HGE库，实现了一个2048游戏的PC版本。
+ - 增加额外功能, 如更换音乐或主题、录制和回放游戏等。
+ 
+## 技能
+ - **编程语言**: Python，Java，C/C++，Scala，JS 等
+ - **计算库**: TensorFlow，Keras，PyTorch，Caffe，Spark，OpenCV 等
+ - **软件工程**: Web，Android，Unity3DGame 等
+ - **平台**: Linux/Windows
+ - **算法**: 机器学习算法、自然语言处理技术及其应用等
+
+## 个人荣誉
+ - 瑞金医院MMC人工智能辅助构建知识图谱大赛亚军(2/1629) 2019年2月
+ - 北京大学学习优秀奖 2018年12月
+ - 上海交通大学优秀奖学金 2016年11月 / 2014年11月
+ 
+## 课外活动
+ - 任班级文体委员、生活委员。
+ - 参与吉他协会、铁路文化协会等社团。
+ - 参与上海电影博物馆、上海马拉松等志愿者工作。
+ - 参加新生篮球赛。
+ - 参加迎新晚会、军训晚会、合唱比赛、运动会入场式的表演。
+ 
+## 兴趣爱好
+ - 喜欢吉他、唱歌、作曲和编曲。 [[音乐主页]](http://space.bilibili.com/11116794)
+ - 喜欢篮球、文学、历史、旅行、铁路文化。 [[铁路主页]](http://blog.sina.com.cn/u/2219977310)
