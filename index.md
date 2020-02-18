@@ -6,11 +6,12 @@
 
 # 教育经历
 ### [北京大学](http://pku.edu.cn)(PKU) 2017年9月至今  
- - 软件与微电子学院, 软件工程国家工程研究中心  
- - 软件工程硕士 , 深度学习和自然然语言处理方向
+ - 软件工程硕士, 深度学习和自然然语言处理方向
+ - 软件与微电子学院, 软件工程国家工程研究中心
+ 
 ### [上海交通大学](http://sjtu.edu.cn/)(SJTU) 2013年9月 - 2017年6月  
- - 电子信息与电气工程学院
  - 软件工程学士
+ - 电子信息与电气工程学院
 
 # 论文发表
  - "Exploiting Entity BIO Tag Embeddings and Multi-task Learning for Relation Extraction with Imbalanced Data", **Association for Computational Linguistics(ACL)**,2019.[[pdf]](https://www.aclweb.org/anthology/P19-1130) [[link]](https://www.aclweb.org/anthology/P19-1130/)
